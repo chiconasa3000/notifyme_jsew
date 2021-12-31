@@ -1,0 +1,38 @@
+
+#App specific
+node_modules
+.tmp
+
+#production
+.build/
+*.orig
+
+#logs
+yarn-error.log*
+yarn-debug.log*
+npm-debug.log*
+
+#testing
+/coverage
+cypress
+
+## Web
+#cache
+.cache
+#dist
+dist
+
+#misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+#json and packages
+*.json
+.eslintrc
+.prettierrc
+.babelrc
+
