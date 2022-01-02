@@ -7,8 +7,8 @@ It classifies in different chapters but I reproduce it from the chapter 13 calle
 In order to run you need to download all packages demandes from package.json with npm tool
 and you need to run web and api together.
 
-Notedly Api is run with nom run dev (inside of web directory)
+Notedly Api is run with ```npm run dev``` (inside of web directory)
 
-Notedly Web is run with parcel src/index.html (inside of api directory)
+Notedly Web is run with ```parcel src/index.html``` (inside of api directory)
 
 

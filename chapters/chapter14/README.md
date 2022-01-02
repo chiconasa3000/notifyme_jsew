@@ -4,6 +4,9 @@
 
 ## Setting Up Apollo Client
 
+Some initial result
+![initialdatanote](imgs/resultsNotesonweb.png)
+
 the web work with the help of Parcel it assigns values from  .env file in this case we need the uri server (backend area) which is the address which connects our web client to our API server.
 
 It needs apollo client libraries
@@ -174,4 +177,3 @@ return(
   );
 
 ```
-
