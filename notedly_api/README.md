@@ -12,3 +12,10 @@ Basically the core is about management of notes, the user could writing, updatin
 Furthermore, It has control of access to every route, with login and sign actions. and it includes nested queries for connecting different entities or models. 
 
 It has some part for deployment using  mongo DB Atlas Cluster and for DEVOPs uses Heroku, it set data base connector with the .env file and heroku control with pushing commits in its reposirory
+
+
+In order to run Notedly api you need to execute "npm run dev" command (inside of web directory)
+
+
+
+

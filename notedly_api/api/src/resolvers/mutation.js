@@ -12,8 +12,6 @@ const{
 const gravatar = require('../util/gravatar');
 const JWT_KEY = process.env.JWT_KEY;
 
-
-
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
 module.exports = {
@@ -92,7 +90,6 @@ module.exports = {
   },
 
   signUp: async (parent, {username, email, password}, {models}) => {
-    console.log(`La db es: ${JWT_KEY}`);
     //normalize email adress
     email = email.trim().toLowerCase();
     
@@ -110,7 +107,7 @@ module.exports = {
         avatar,
         password: hashed
       });
-
+      //return encoded token using user id and JWT_KEY
       return jwt.sign({id: user._id}, process.env.JWT_KEY);
     } catch (err){
       console.log(err);

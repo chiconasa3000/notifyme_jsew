@@ -15,8 +15,9 @@ const {createComplexityLimitRule} = require('graphql-validation-complexity');
 const getUser = token => {
   if(token){
     try{
-      //return the user information from the token
-      return jwt.verify(token, process.env.JWT_KEY);
+      res = jwt.verify(token, process.env.JWT_KEY);
+      //return user id which is decoded from token of header and JWT_KEY
+      return res
     } catch (err){
       //if there's a problem with the token, throw an error
       throw new Error('Session invalid');
@@ -57,11 +58,12 @@ const server = new ApolloServer({
     //try to retrieve a user with the token
     //comparing the token with token on environment
     const user = getUser(token);
+    //const user = "vacio"
     //for now, let's log the user to the console
-    console.log(user); 
+    //console.log(user); 
 
     //Add the db models to the context
-    return { models, user };
+    return {models, user};
   }
 });
 
