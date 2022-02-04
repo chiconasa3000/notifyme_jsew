@@ -2,7 +2,7 @@
 # Chapter 15: Web Authentication and State
 
 The App progrees include loging signin and signup actions like this...
-![AppProgress](img/webApp-chapter15.png)
+![AppProgress](imgs/webApp-chapter15.png)
 
 ## Signin In component
 
