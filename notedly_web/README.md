@@ -8,4 +8,4 @@ with templates in the markers, separates the diferent views working with modules
 This is some view of progress in the UI web
 ![web_ui](imgs/notedly_web_ui.png)
 
-In order to run Notedly api you need to execute "parcel/index.html" command (inside of web directory)
+In order to run Notedly api you need to execute "parcel src/index.html" command (inside of web directory)

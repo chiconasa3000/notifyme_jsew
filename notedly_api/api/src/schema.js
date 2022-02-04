@@ -61,7 +61,7 @@ module.exports = gql`
     
     #register and login in the app
     signUp(username: String!, email: String!, password: String!): String! 
-    signIn(username: String!, email: String!, password: String!): String!
+    signIn(username: String, email: String, password: String!): String!
 
     #Turn off or Turn on favorite notes
     toggleFavorite(id: ID!): Note!
