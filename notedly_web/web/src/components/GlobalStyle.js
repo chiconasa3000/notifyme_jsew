@@ -20,7 +20,7 @@ html{
 
 body{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxigen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-  background-color: #fff;
+  background-color: #e5e5e5;
   line-height: 1.4;
 }
 

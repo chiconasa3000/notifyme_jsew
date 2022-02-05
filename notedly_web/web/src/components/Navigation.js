@@ -5,7 +5,8 @@ import styled from 'styled-components';
 
 const Nav = styled.nav`
   padding: 1em;
-  background: #f5f4f0;
+  /*background: #f5f4f0;*/
+  background: #c0bdb0;
   
   @media (max-width: 700px){
     padding-top: 64px;
@@ -46,7 +47,9 @@ const NavList = styled.ul`
     color: #0077cc;
   }
 
-  
+  span{
+    font-size:32.0pt;
+  } 
 `;
 
 const Navigation = () => {
@@ -56,15 +59,24 @@ const Navigation = () => {
       <NavList>
         <li>
           <span aria-hidden="true" role="img">
-       
+            🛖   
           </span>
           <Link to="/">Home</Link>
         </li>
         <li>
+          <span aria-hidden="true" role="img">
+            📔
+          </span>
           <Link to="/mynotes">My Notes</Link>
         </li>
         <li>
+          <span aria-hidden="true" role="img">
+            🏷
+          </span>
           <Link to="/favorites">Favorites</Link>
+        </li>
+        <li>
+          <Link to="/new">New</Link>
         </li>
       </NavList>
     </Nav>

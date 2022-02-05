@@ -59,8 +59,9 @@ module.exports = {
     }
   },
 
-  updateNote: async(parent, {content, id}, {model, user }) => {
+  updateNote: async(parent, {content, id}, {models, user }) => {
     if(!user){
+      console.log("error de no signed");
       throw new AuthenticationError('You must be signed in to update a note');
     } 
 
@@ -69,6 +70,7 @@ module.exports = {
 
     //if the note owner and current user don't match, throw a forbidden error
     if(note && String(note.author) !== user.id){
+      console.log("error de no match");
       throw new ForbiddenError("You don't have permissions to update the note ");
     }
 

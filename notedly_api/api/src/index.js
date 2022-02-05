@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const { ApolloServer } = require('apollo-server');
 
 const host = '0.0.0.0';
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 
 const DB_HOST = process.env.DB_HOST;
 
@@ -63,7 +63,7 @@ const server = new ApolloServer({
     //console.log(user); 
 
     //Add the db models to the context
-    return {models, user};
+    return {models,user};
   }
 });
 

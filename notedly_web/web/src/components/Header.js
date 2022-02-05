@@ -7,11 +7,7 @@ import {Link, withRouter} from 'react-router-dom';
 import ButtonAsLink from './ButtonAsLink';
 
 //localQuery
-const IS_LOGGED_IN= gql`
-  {
-    isLoggedIn @client
-  }
-`;
+import {IS_LOGGED_IN} from '../gql/query';
 
 const HeaderBar = styled.header`
   width: 100%;
@@ -20,7 +16,7 @@ const HeaderBar = styled.header`
   height: 64px;
   position: fixed;
   align-items: center;
-  background-color: #fff;
+  background-color: #ada097;
   box-shadow: 0 0 5px 0 rgba(0,0,0,0.25);
   z-index: 1;
 `;

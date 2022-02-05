@@ -13,12 +13,10 @@ import NotePage from './note';
 //first the name of component and then filename
 import SignUp from './signup';
 import SignIn from './signin';
+import NewNote from './new';
+import EditNote from './edit';
 
-const IS_LOGGED_IN = gql`
-  {
-    isLoggedIn @client
-  }
-`;
+import {IS_LOGGED_IN} from '../gql/query';
 
 const Pages = () => {
   return(
@@ -31,6 +29,8 @@ const Pages = () => {
         <Route path="/note/:id" component={NotePage}/>
         <Route path="/signup" component={SignUp}/>
         <Route path="/signin" component={SignIn}/>
+        <PrivateRoute path="/new" component={NewNote}/>
+        <PrivateRoute path="/edit/:id" component={EditNote}/>
       </Layout>
     </Router>
   );
