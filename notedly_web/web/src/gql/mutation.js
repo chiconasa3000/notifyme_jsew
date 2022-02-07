@@ -58,10 +58,28 @@ const SIGNUP_USER = gql`
 `;
 
 
+//Delete Note
+const DELETE_NOTE = gql`
+  mutation deleteNote($id: ID!){
+    deleteNote(id:$id)
+  }
+`;
+
+//add the TOGGLE_FAVORITE mutation
+const TOGGLE_FAVORITE = gql`
+  mutation toggleFavorite($id: ID!){
+    toggleFavorite(id: $id){
+      id
+      favoriteCount
+    }
+  }
+`;
 
 export {
   NEW_NOTE,
   EDIT_NOTE,
   SIGNIN_USER,
-  SIGNUP_USER
+  SIGNUP_USER,
+  DELETE_NOTE,
+  TOGGLE_FAVORITE
 };

@@ -173,7 +173,7 @@ module.exports = {
           //reduce the number of users in other words
           //reduce favorites or likes (so every user have 1 like at much)
           $inc: {
-            favoiteCount: -1
+            favoriteCount: -1
           }
         },
         {

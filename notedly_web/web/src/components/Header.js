@@ -40,7 +40,7 @@ const Header = props => {
   return(
     <HeaderBar>
       <img src={logo} alt="Notedly Logo" height="40"/>
-      <LogoText>Notedly</LogoText>
+      <LogoText>NotifyMe</LogoText>
       {/*If logged in display a logout link, else display sign-in options*/}
       <UserState>
         {data.isLoggedIn ? (
@@ -50,7 +50,6 @@ const Header = props => {
               //remove the token (jwt)
               localStorage.removeItem('token');
  
-              console.log(data)
               //clear the application's cache (using apollo client) (cache)
               client.resetStore();
               

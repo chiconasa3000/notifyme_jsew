@@ -61,7 +61,7 @@ const Navigation = () => {
           <span aria-hidden="true" role="img">
             🛖   
           </span>
-          <Link to="/">Home</Link>
+          <Link to="/">Main Notes</Link>
         </li>
         <li>
           <span aria-hidden="true" role="img">
@@ -76,6 +76,9 @@ const Navigation = () => {
           <Link to="/favorites">Favorites</Link>
         </li>
         <li>
+          <span aria-hidden="true" role="img">
+            📝
+          </span>
           <Link to="/new">New</Link>
         </li>
       </NavList>
