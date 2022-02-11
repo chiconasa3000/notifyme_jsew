@@ -15,7 +15,7 @@ const {createComplexityLimitRule} = require('graphql-validation-complexity');
 const getUser = token => {
   if(token){
     try{
-      res = jwt.verify(token, process.env.JWT_KEY);
+      const res = jwt.verify(token, process.env.JWT_KEY);
       //return user id which is decoded from token of header and JWT_KEY
       return res
     } catch (err){

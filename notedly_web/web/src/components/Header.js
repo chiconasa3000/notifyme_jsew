@@ -1,10 +1,11 @@
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import logo from '../img/notedly_svg.svg';
 import {useQuery, gql} from '@apollo/client';
 import {Link, withRouter} from 'react-router-dom';
 import ButtonAsLink from './ButtonAsLink';
+//import Username from './Username';
 
 //localQuery
 import {IS_LOGGED_IN} from '../gql/query';
@@ -37,6 +38,7 @@ const Header = props => {
   //query hook for user logged-in state,
   //including the client for referencing the Apollo store (saving your jwt or flag loggedin)
   const {data, client} = useQuery(IS_LOGGED_IN);
+  
   return(
     <HeaderBar>
       <img src={logo} alt="Notedly Logo" height="40"/>
@@ -44,24 +46,25 @@ const Header = props => {
       {/*If logged in display a logout link, else display sign-in options*/}
       <UserState>
         {data.isLoggedIn ? (
-          <ButtonAsLink
-            onClick={()=>{
-
-              //remove the token (jwt)
-              localStorage.removeItem('token');
+          <div>
+            <ButtonAsLink
+              onClick={() => {
+                //remove the token (jwt)
+                localStorage.removeItem('token');
  
-              //clear the application's cache (using apollo client) (cache)
-              client.resetStore();
-              
-              //update local state (using apollo client) (flag)
-              client.writeData({data:{isLoggedIn: false}});
-              
-              //redirect the user to the home page
-              props.history.push('/');
-            }}
-          >
-            Log Out
-          </ButtonAsLink>
+                //clear the application's cache (using apollo client) (cache)
+                client.resetStore();
+                
+                //update local state (using apollo client) (flag)
+                client.writeData({data:{isLoggedIn: false}});
+                
+                //redirect the user to the home page
+                props.history.push('/');
+              }}
+            >
+              Log Out
+            </ButtonAsLink>
+          </div>
         ) : (
           <p>
             <Link to={'/signin'}>Sign In</Link> or{' '}
