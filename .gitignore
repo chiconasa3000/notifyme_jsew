@@ -31,8 +31,10 @@ dist
 .env.production.local
 
 #json and packages
-*.json
+#*.json
 .eslintrc
 .prettierrc
 .babelrc
+.babelrc_copy
+cypress.json
 
