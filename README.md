@@ -9,6 +9,10 @@ and you need to run web and api together.
 
 Notedly Api is run with ```npm run dev``` (inside of web directory)
 
-Notedly Web is run with ```parcel src/index.html``` (inside of api directory)
+Notedly Web is run with ```npm run dev``` (inside of api directory)
 
+If you want to view the deployment of this page you could visit deployment site.
 
+https://peaceful-hermann-c96c3d.netlify.app/
+
+![FinalApp Web Site](imgs/NotifyMe_deploy.png)
