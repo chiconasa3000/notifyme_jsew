@@ -10,11 +10,9 @@ The webapp to this point with CRUD Operations is like this, we change the name o
 ## Creating New Notes
 
 In the same form It creates the page that execute some initial queries. Then it creates the component which will have react hooks in order to create states of the component in this case some state
-link to textArea of the note form.
+link to textArea of the note formSome special code is in the react hook which includes events that meanwhile user complete field values it saves this values on json format like this.
 
-Some special code is in the react hook which includes events that meanwhile user complete field values it saves this values on json format like this.
-
-React Hook
+Some special code is in the react hook which includes events meanwhile user complete field values it saves this values on json format like this.
 ```
   //Set the default state of the form
   //Adds property content: which is assigned by props.content of textarea else it is empty
@@ -64,7 +62,7 @@ Other charateristic on the component NoteForm.js is that we delegate to it execu
 >
 ```
 
-Apollo led us to update the cache of different views in thi cases calling the required queries. For new notes we need to update the notes of the user with the specific id of the note and general list
+Apollo led us to update the cache of different views in this case calling the required queries. For new notes we need to update the notes of the user with the specific note id and general list
 notes in the main view of notefeed, all is possible with refetchQueries command, as you can see
 in the below code...
 
@@ -83,7 +81,7 @@ const [data, {loading, error}] = useMutation(NEW_NOTE, {
 
 ## Reading User Notes
 
-In this case myNotes pages led us viewing user notes, so for this actions we require current user and acces to notes of this user, it is possible with this query:
+In this case, myNotes pages led us viewing user notes, so this actions require current user and note access, it is possible with this query:
 
 ```
 //Get Notes from current user
@@ -109,7 +107,7 @@ const GET_MY_NOTES = gql`
 
 ```
 
-In this by parameter It could send user notes to NoteFeed component in order to render the list user notes and it is the same process for list of favorites like this...
+In this code, It could send user notes to NoteFeed component by parameter in order to render the list user notes and it is the same process for list of favorites like this...
 
 
 ```
@@ -124,11 +122,11 @@ if(data.me.notes.length !== 0){
 ## Updating Notes
 
 Create a  edit.js page, as equal to new note in this we pass as parameter the note list in Note Ccomponent, with the id pass by url. It reuses the NoteForm component but in this case the content of
-TextArea appears inside of this. Other property is that we set GET_ME adn GET_NOTE query in order to update only when the user is the owner of the note else it shows the NoteForm component with the respectively
+TextArea appears inside of this. Other property is that we set GET_ME and GET_NOTE query in order to update only when the user is the note owner else it shows the NoteForm component with the respectively
 content and the note id.
 
-some special key is sending a query to the component in this case we set some parameteres of the query like a id or redirects to a new page but this actions save on editNote that execute when the
-component is show like this...
+some special key is sending a query to the component. In this case, we set some parameteres of the query like a id or redirects to a new page but these actions save on editNote that execute when the
+component is showed like this...
 
 
 ```
@@ -145,7 +143,7 @@ component is show like this...
 
 ```
 
-and then you pass this query to the component NoteForm like this
+then you pass this query to the component NoteForm like this
 
 ```
 return <NoteForm content={data.note.content} action={editNote}/>;
@@ -168,7 +166,7 @@ The query is executed in NoteForm like this...
 
 ```
 
-the updating note is made only if current user is the note's owner, so we have to display a link edit or component NoteUser if the user is logged in, else it show the favorite count like this...
+Updating note is made only if current user is the note's owner, so we have to display a link edit or component NoteUser if the user is logged in, else it shows the favorite count like this...
 
 
 ```
@@ -184,7 +182,7 @@ the updating note is made only if current user is the note's owner, so we have t
 
 ```
 
-In the NoteUser component or component for specific user notes, it require to check current user is the same of the note's author in this case we also displat edit link like this:
+In the NoteUser component or component for specific user notes, it requires to check if current user is equal to the note's author in this case we also display edit link like this:
 
 
 ```
@@ -198,7 +196,7 @@ In the NoteUser component or component for specific user notes, it require to ch
 
 ## Deleting Notes
 
-It is a nonroutable component because it is a component which redirects to another component, normally, we include a redirect in pages but not in component, so for this reason this component is
+It is a nonroutable component because it is a component which redirects to another component, normally, we include a redirection in pages but not in a component, for this reason, this component is
 a higher-order component and we need withRouter command from React.
 
 ```
@@ -231,7 +229,7 @@ So we reuse NoteUser component for showing the new DeleteNote component as a lin
 
 ## Toggling Favorites
 
-If we remember grapql api, toogle favorites consist in increase a count which belongs to differents users, every user only toggle favorite once, a note could not receives too many favorites by the
+If we remember grapql api, toogle favorites consist in increasing a counter which belongs to differents users, every user only toggles favorite once, a note could not receive too many favorites by the
 same user.
 
 We create a FavoriteNote component in order to display a link and control with states the quantity of favorites in a note. We put this on NoteUser component, considering three parameters which are [me, noteId and favoriteCount]
@@ -245,10 +243,10 @@ We create a FavoriteNote component in order to display a link and control with s
 
 ```
 
-In this case we use the react hooks in order to setState for count and for favorited like this
-The first is by favoriteCount in order to increase or decrease in the view the number of favorites when user toggle or distoggle a favorite note
+we use the react hooks in order to setState for counting and favoriting like this
+The first is by favoriteCount in order to increase or decrease the number of favorites in the view when user toggles or distoggles a favorite note.
 
-The second  is favorites flag in this case we filter the favorites notes is inside to the favorite list user so if atleast there are one so we set true else set false
+The second  is a favorited flag in this case we filter the favorites notes are inside to the favorite list user so if there are one at least so we set true else set false
 ```
 //store the note's favorite count as state
 const [count, setCount] = useState(props.favoriteCount);
@@ -289,12 +287,13 @@ In the render of FavoriteNote we set like this rendering AddFavorite and RemoveF
 
 ```
 
-And we remember again the graphql api where toggle favorite checks if is untoggle or toggle favorite note, and remove or adds in the list of favoriteBy and remove or add in the counter Favorite
-As we can see in the before code we use the functions SetFavorited and SetCount in order to update in the view for change the state.
+And we remember again the graphql api where a favorite toggling check if is untoggle or toggle favorite note, and remove or adds in the list of favoriteBy and remove or add on favorite counter.
+As we can see in the before code we use functions SetFavorited and SetCount in order to update view for changing the state.
 
-the other is refresh cache of user favorites list like this:
+Other is refreshing user favorite list's cache like this:
 ```
 refetchQueries: [{query: GET_MY_FAVORITES}]
 ```
 
-It is awesome work frontend with react when all  backend work is done. Even we correct some issueas in the graphQl api, when we note the responde is incorrect in the views. Awesome!!!
+It is pleasant to work in frontend with React when backend work with GraphQl is done. Even if we correct some issues in the graphQl api, when we check the responses status. So at this point we have
+a minimal functional app, I hope the next chapter: deployment!!! 🎉
