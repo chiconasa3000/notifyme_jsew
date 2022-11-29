@@ -1,5 +1,5 @@
 
-module.exports = {
+const User = {
 
   //Resolve the list of notes for a user when requested
   notes: async (user, args, {models}) => {
@@ -11,3 +11,4 @@ module.exports = {
     return await models.Note.find({favoritedBy: user._id}).sort({_id: -1});
   }
 }
+export {User};

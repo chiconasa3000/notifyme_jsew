@@ -1,12 +1,7 @@
-
-const {gql} = require('apollo-server');
-
-
-
 // A schema is a collection of type definitions (hence "typeDefs")
 // that together define the "shape" of queries that are executed against
 // your data.
-module.exports = gql`
+const typeDefs = `
   scalar DateTime
 
   # This Note containes the metadata about the entity that you create
@@ -68,4 +63,5 @@ module.exports = gql`
   }
 `;
 
+export {typeDefs};
 

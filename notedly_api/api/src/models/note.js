@@ -1,6 +1,6 @@
 
 //Require the mongoose library
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 //Define the note's database schema
 const noteSchema = new mongoose.Schema(
@@ -37,4 +37,4 @@ const noteSchema = new mongoose.Schema(
 const Note = mongoose.model('Note', noteSchema);
 
 //Export the module
-module.exports = Note;
+export {Note};

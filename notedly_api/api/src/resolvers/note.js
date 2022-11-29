@@ -1,6 +1,6 @@
 
 //queries or mutations for notes
-module.exports = {
+const Note = {
   //Resolve the author info for a note when requested
   //So you could return like nested query and get fields about author
   author: async (note, args, {models}) => {
@@ -12,3 +12,5 @@ module.exports = {
     return await models.User.find({_id: {$in: note.favoritedBy}});
   }
 };
+
+export {Note};

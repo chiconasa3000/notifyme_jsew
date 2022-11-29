@@ -1,11 +1,12 @@
 /* Helper file for seeding user data during testing or local development */
 
-const models = require('../../models');
-const seedUsers = require('./users');
-const seedNotes = require('./notes');
+import models from "../../models";
+import seedUsers from "./users";
+import seedNotes from "./notes";
 //const seedNotes = import("./notes.js");
-const db = require('../../db');
-require('dotenv').config();
+import db from "../../db";
+import dotenv from "dotenv";
+dotenv.config();
 
 const DB_HOST = process.env.DB_HOST;
 

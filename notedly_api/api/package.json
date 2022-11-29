@@ -2,12 +2,13 @@
   "name": "notedly-api",
   "version": "1.0.0",
   "description": "Learning API with GraphQl by Adam Scott",
-  "main": "src/index.js",
+  "main": "src/index.mjs",
+  "type": "module",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "dev": "nodemon src/index.js",
-    "final": "nodemon final/index.js",
-    "seed": "node src/util/seed/index.js",
+    "start": "nodemon src/index.mjs",
+    "dev": "nodemon src/index.mjs",
+    "final": "nodemon final/index.mjs",
+    "seed": "node src/util/seed/index.mjs",
     "lint": "eslint \"src/**/*.js\""
   },
   "repository": {
@@ -23,33 +24,30 @@
   "author": "Christian A. Suca Velando",
   "license": "MIT",
   "dependencies": {
-    "apollo-server": "^3.5.0",
-    "apollo-server-core": "^3.5.0",
-    "apollo-server-express": "^3.5.0",
-    "bcrypt": "^5.0.1",
-    "cors": "2.8.5",
-    "dotenv": "^6.1.0",
-    "express": "^4.17.1",
-    "express-session": "1.15.6",
-    "graphql": "^14.7.0",
-    "graphql-depth-limit": "1.1.0",
-    "graphql-iso-date": "3.6.1",
-    "graphql-validation-complexity": "0.2.4",
-    "helmet": "3.21.2",
-    "jsonwebtoken": "8.5.1",
-    "marked": "0.7.0",
-    "md5": "2.2.1",
-    "mongoose": "^6.0.12",
-    "nodemon": "^2.0.15",
-    "passport": "0.4.0",
-    "passport-github2": "0.1.11"
+    "@apollo/server": "^4.2.2",
+    "graphql": "^16.6.0",
+    "graphql-depth-limit": "^1.1.0",
+    "graphql-validation-complexity": "^0.4.2",
+
+    "express": "^4.18.2",
+    "cors" : "^2.8.5",
+    "body-parser": "^1.20.1",
+
+    "mongoose": "^6.7.4",
+    "nodemon": "^2.0.20",
+    "bcrypt": "^5.1.0",
+    "md5": "^2.3.0",
+    "dotenv": "^16.0.3",
+    "jsonwebtoken": "^8.5.1",
+
+    "marked": "^4.2.3",
+    "faker": "^5.5.3",
+    "node-fetch": "^3.3.0"
   },
   "devDependencies": {
-    "eslint": "^8.2.0",
-    "eslint-config-prettier": "4.0.0",
-    "eslint-plugin-prettier": "3.0.1",
-    "faker": "4.1.0",
-    "node-fetch": "^3.1.0",
-    "prettier": "1.18.2"
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.0"
   }
 }

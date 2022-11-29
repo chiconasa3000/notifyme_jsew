@@ -1,16 +1,18 @@
-const Query = require('./query');
-const Mutation = require('./mutation');
+import {Query} from "./query.js";
+import {Mutation} from "./mutation.js";
 
-const Note = require('./note');
-const User = require('./user');
+import {Note} from "./note.js";
+import {User} from "./user.js";
 
 //para validacion de fecha
-const {GraphQLDateTime} = require('graphql-iso-date');
+//const {GraphQLDateTime} = require('graphql-iso-date');
 
-module.exports = {
+const resolvers = {
   Query,
   Mutation,
   Note,
-  User,
-  DateTime: GraphQLDateTime
+  User
+  //DateTime: GraphQLDateTime
 };
+
+export {resolvers};

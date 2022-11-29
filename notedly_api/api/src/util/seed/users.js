@@ -1,10 +1,10 @@
 /* Helper file for testing or local dev
 /* Generates 10 fake users */
 
-const faker = require('faker');
-const bcrypt = require('bcrypt');
+import fake from "faker";
+import bcrypt from "bcrypt";
 
-const gravatar = require('../gravatar');
+import gravatar "../gravatar";
 
 const seedUsers = async () => {
   console.log('Seeding users...');
@@ -25,4 +25,4 @@ const seedUsers = async () => {
   return users;
 };
 
-module.exports = seedUsers;
+export seedUsers;

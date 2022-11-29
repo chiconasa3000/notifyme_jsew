@@ -1,22 +1,10 @@
 
 //Require the mongoose library
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-module.exports = {
+const datab = {
   //connection properties
   connect: DB_HOST => {
-
-    //Use the Mongo driver's updated URL string parser
-    //mongoose.set('useNewUrlParser', true);
-    
-    //User findOneAndUpdate() in place of findAndModify()
-    //mongoose.set('useFindAndModify', false);
-
-    //Use createIndex() in place of ensureIndex()
-    //mongoose.set('useCreateIndex', true);
-
-    //Use the new server discovery and monitoring engine
-    //mongoose.set('useUnifiedToplogy', true);
 
     //Connnect to the DB
     mongoose.connect(DB_HOST);
@@ -36,6 +24,6 @@ module.exports = {
     mongoose.connection.close();
   }
 
-};//end of module exports
+};
 
-
+export default datab;

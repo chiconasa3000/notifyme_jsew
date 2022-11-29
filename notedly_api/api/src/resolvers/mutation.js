@@ -1,24 +1,28 @@
 
-require('dotenv').config();
+import dotenv from "dotenv";
+dotenv.config();
 
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const{
-  AuthenticationError,
-  ForbiddenError
-} = require('apollo-server');
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
-const gravatar = require('../util/gravatar');
+import {GraphQLError} from 'graphql';
+
+import {gravatar} from "../util/gravatar.js";
 const JWT_KEY = process.env.JWT_KEY;
 
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
-module.exports = {
+const Mutation = {
   newNote: async (parent, args, {models, user}) => {
     //checking user
     if(!user){
-      throw new AuthenticationError('You must be signed in to create a note');
+      throw new GraphQLError('You must be signed in to create a note', {
+        extensions: {
+          code: "UNAUTHENTICATED",
+          http: {status:401},
+        },
+      });
     }
 
     //contruyendo nueva nota temporal
@@ -35,7 +39,13 @@ module.exports = {
   deleteNote: async(parent, {id}, {models, user}) =>{
     //if not a user, throw an Authentication Error
     if(!user){
-      throw new AuthenticationError('You must be signed in to delete a note');
+      throw new GraphQLError('You must be signed in to create a note', {
+        extensions: {
+          code: "UNAUTHENTICATED",
+          http: {status:401},
+        },
+      });
+
     }
 
     //find the note
@@ -44,7 +54,14 @@ module.exports = {
     //if the note owner and current user don't match, throw a forbidden error
     //remember note.author is ObjectId so It must transformed in String
     if(note && String(note.author) !== user.id){
-      throw new ForbiddenError("You don't have permisssions to delete the note");
+      throw new GraphQLError('You must be signed in to create a note', {
+        extensions: {
+          code: "UNAUTHENTICATED",
+          http: {status:401},
+        },
+      });
+
+      //throw new ForbiddenError("You don't have permisssions to delete the note");
     }
 
     //If all above is done so remove note
@@ -62,7 +79,13 @@ module.exports = {
   updateNote: async(parent, {content, id}, {models, user }) => {
     if(!user){
       console.log("error de no signed");
-      throw new AuthenticationError('You must be signed in to update a note');
+      throw new GraphQLError('You must be signed in to create a note', {
+        extensions: {
+          code: "UNAUTHENTICATED",
+          http: {status:401},
+        },
+      });
+
     } 
 
     //find the note
@@ -71,7 +94,13 @@ module.exports = {
     //if the note owner and current user don't match, throw a forbidden error
     if(note && String(note.author) !== user.id){
       console.log("error de no match");
-      throw new ForbiddenError("You don't have permissions to update the note ");
+      console.log("You don't have permissions to update the note ");
+      throw new GraphQLError('You must be signed in to create a note', {
+        extensions: {
+          code: "UNAUTHENTICATED",
+          http: {status:401},
+        },
+      });
     }
 
     //Update the note in the db and return the updated note
@@ -132,7 +161,12 @@ module.exports = {
 
     //if no user is found, throw an authentication error
     if(!user){
-      throw new AuthenticationError('Error signing in');
+      throw new GraphQLError('You must be signed in to create a note', {
+        extensions: {
+          code: "UNAUTHENTICATED",
+          http: {status:401},
+        },
+      });
     }
 
     //Chekc password user with password sending by parameter
@@ -140,7 +174,12 @@ module.exports = {
     //if the passwords don't match, throw an authentication error
     const valid = await bcrypt.compare(password, user.password);
     if(!valid){
-      throw new AuthenticationError('Error signing in');
+      throw new GraphQLError('You must be signed in to create a note', {
+        extensions: {
+          code: "UNAUTHENTICATED",
+          http: {status:401},
+        },
+      });
     }
 
     //create and return the json web token which have already existed 
@@ -152,7 +191,12 @@ module.exports = {
   //Turn off or Turn on favorite notes
   toggleFavorite:  async (parent, {id}, {models, user}) => {
     if(!user){
-      throw new AuthenticationError();
+      throw new GraphQLError('You must be signed in to create a note', {
+        extensions: {
+          code: "UNAUTHENTICATED",
+          http: {status:401},
+        },
+      });
     }
 
     //check to see if the user has already favorited the note
@@ -203,4 +247,4 @@ module.exports = {
   }
 }
 
-
+export {Mutation};
