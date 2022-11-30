@@ -1,7 +1,7 @@
 /* Helper file for testing or local dev
 /* Generates 25 fake notes */
 
-import fake from "faker";
+import faker from "faker";
 import mongoose from "mongoose";
 //const fetch = require('node-fetch');
 //import fetch from 'node-fetch';
@@ -29,4 +29,4 @@ const seedNotes = async users => {
   return notes;
 };
 
-export seedNotes;
+export {seedNotes};

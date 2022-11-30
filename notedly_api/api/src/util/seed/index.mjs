@@ -1,10 +1,10 @@
 /* Helper file for seeding user data during testing or local development */
 
-import models from "../../models";
-import seedUsers from "./users";
-import seedNotes from "./notes";
+import models from "../../models/index.js";
+import {seedUsers} from "./users.js";
+import {seedNotes} from "./notes.js";
 //const seedNotes = import("./notes.js");
-import db from "../../db";
+import db from "../../db.js";
 import dotenv from "dotenv";
 dotenv.config();
 
